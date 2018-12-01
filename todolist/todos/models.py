@@ -29,7 +29,6 @@ class Todo(models.Model):
         verbose_name_plural = "Todos"
         ordering = ["-created_at"]
 
-
     def __str__(self):
         return self.title
 
