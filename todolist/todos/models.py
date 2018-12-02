@@ -7,10 +7,13 @@ from django.db import models
 class Category(models.Model):
 
     name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now=True)
+    # creator = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
 
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
+        ordering = ["created_at"]
 
     def __str__(self):
         return self.name
@@ -27,8 +30,9 @@ class Todo(models.Model):
     class Meta:
         verbose_name = "Todo"
         verbose_name_plural = "Todos"
-        ordering = ["-created_at"]
+        ordering = ["created_at"]
 
     def __str__(self):
         return self.title
+
 

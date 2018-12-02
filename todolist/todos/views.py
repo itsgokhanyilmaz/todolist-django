@@ -5,7 +5,7 @@ from .models import Todo, Category
 
 from .serializers import (
     TodoSerializer,
-    CategorySerializer
+    CategorySerializer,
 )
 
 
@@ -29,3 +29,4 @@ class ListCategory(generics.ListCreateAPIView):
 class DetailCategory(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
