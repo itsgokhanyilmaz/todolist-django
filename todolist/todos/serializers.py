@@ -5,18 +5,18 @@ from .models import (
     Category,
 )
 
+class CategorySerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        fields = ('id', 'name', 'created_at')
+        model = Category
+
 
 class TodoSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
 
     class Meta:
-        fields = '__all__'
+        fields = ('id','title','content','due_date','category')
         model = Todo
-
-
-class CategorySerializer(serializers.ModelSerializer):
-
-    class Meta:
-        fields = '__all__'
-        model = Category
 
 

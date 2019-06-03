@@ -25,7 +25,7 @@ class Todo(models.Model):
     content = models.TextField(blank=True)
     created_at = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
 
     class Meta:
         verbose_name = "Todo"
